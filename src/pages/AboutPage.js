@@ -18,7 +18,10 @@ const AboutPage = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
             incidunt fuga ea eum? Dolor exercitationem laborum quidem animi,
             ipsam odio ullam nulla dolore sed eum minima ut similique excepturi
-            debitis.
+            debitis. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Libero incidunt fuga ea eum? Dolor exercitationem laborum quidem
+            animi, ipsam odio ullam nulla dolore sed eum minima ut similique
+            excepturi debitis.
           </p>
         </article>
       </Wrapper>
