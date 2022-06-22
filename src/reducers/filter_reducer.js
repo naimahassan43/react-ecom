@@ -64,10 +64,37 @@ const filter_reducer = (state, action) => {
     let tempProducts = [...all_products];
 
     //filtering
+    //text
     if (text) {
       tempProducts = tempProducts.filter((product) => {
         return product.name.toLowerCase().startsWith(text);
       });
+    }
+    //category
+    if (category !== "all") {
+      tempProducts = tempProducts.filter(
+        (product) => product.category === category
+      );
+    }
+    //company
+    if (company !== "all") {
+      tempProducts = tempProducts.filter(
+        (product) => product.company === company
+      );
+    }
+    //color
+    if (color !== "all") {
+      tempProducts = tempProducts.filter((product) => {
+        return product.colors.find((col) => col === color);
+      });
+    }
+    //price
+    tempProducts = tempProducts.filter((product) => product.price <= price);
+    //shipping
+    if (shipping) {
+      tempProducts = tempProducts.filter(
+        (product) => product.shipping === true
+      );
     }
     return { ...state, filtered_products: tempProducts };
   }
