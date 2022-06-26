@@ -14,6 +14,7 @@ import { formatPrice } from "../utils/helpers";
 import { useHistory } from "react-router-dom";
 
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
+
 const CheckoutForm = () => {
   const { cart, total_amount, shipping_fee, clearCart } = useCartContext();
   const { myUser } = useUserContext();
@@ -47,7 +48,12 @@ const CheckoutForm = () => {
   };
 
   const createPaymentIntent = async () => {
-    console.log("hello from createPaymentIntent");
+    try {
+      const data = await axios.post(
+        "/.netlify/functions/create-payment-intent",
+        JSON.stringify({ cart, shipping_fee, total_amount })
+      );
+    } catch (error) {}
   };
 
   useEffect(() => {
